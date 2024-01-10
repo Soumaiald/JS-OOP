@@ -1,0 +1,28 @@
+#divapp {
+    width: 90%;
+    height: 60vh;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: antiquewhite;
+}
+
+table {
+    width: 50%;
+    height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    background-color: rgb(176, 170, 170);
+    text-align: center;
+}
+
+table:hover {
+    cursor:pointer;
+}
+
+td {
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    
+}
