@@ -39,6 +39,9 @@ class Character {
         const result = Math.floor(Math.random() * 20) + 1 + mod;
         console.log(`${this.name} rolled a ${result}.`)
     }
+    static MAX_HEALTH(maxHealth = 100){
+        console.log(maxHealth)
+    }
 }
 
 const robin = new Character("Robin");
@@ -56,12 +59,15 @@ robin.roll(10)
 console.log("************************************** Part Three **************************************")
 
 class Adventurer extends Character {
-    constructor (name, role) {
+    static ROLES = ["Fighter", "Healer", "Wizard"]
+    constructor (name, role, inventory) {
       super(name);
       // Adventurers have specialized roles.
-      this.role = role;
+      //this.role = role;
+      this.role = this.ROLES.includes(role)?role:null;
       // Every adventurer starts with a bed and 50 gold coins.
-      this.inventory.push("bedroll", "50 gold coins");
+      this.inventory.push("bedroll", "50 gold coins")
+      this.inventory.push.apply(this.inventory, inventory);
     }
     // Adventurers have the ability to scout ahead of them.
     scout () {
@@ -85,12 +91,13 @@ class Companion extends Character {
   }
 
 
-const alex = new Adventurer("Alex","roleX", ["sword", "potion", "artifact"])
+const alex = new Adventurer("Alex","roleX",["sword", "potion", "artifact"])
 const companion1 = new Companion("Leo", "Cat")
 const companion2 = new Companion("Frank", "Flea")
 companion2.addBelongings(["small hat", "sunglasses"])
 alex.companion = companion1
 companion1.companion = companion2
+console.log(alex.inventory)
 
-
-alex.roll()
+console.log(companion1.name)
+companion1.roll()
