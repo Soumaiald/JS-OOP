@@ -27,7 +27,7 @@
 
     <!-- Our Scripts -->
     <script type="module" src="Carousel.js" ></script>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="country.js"></script>
   </head>
 
   <body>
@@ -38,22 +38,21 @@
     <h2 class="w-100 text-center mt-5">World Wide Holidays</h2>
     <div class="container text-center">
         <div class="row">
-          <div id="countriesSearch" class="col">
-            <h3>Countries</h3>
-            <div class="row">
-              <div class="col-sm-1" >
-                <img id="imgSearch"  src="./images/searchIcon.png" />
-              </div>
-              <div class="col">
-                <input id="inputSearch" v-model="search" type="text" placeholder="Search" autofocus>
-              </div>
-            </div>
-            <section id="breedSelect" style="height: 400px;" class="card mb-3 ml-1 ml-sm-3">
+          <div id="countryHolidays" class="col">
+            <h3>Public Holidays</h3>
+        
               <div class="publicHolidaySearch">
-                  <table id="table1" style="height: 400px;" class="table" v-if="filteredCountries && filteredCountries.length > 0">
+                  <table  style="height: 400px;" class="table" v-if="filteredCountries && filteredCountries.length > 0">
+                    <thead>
+                        <th>Date</th>
+                        <th>Local name</th>
+                        <th>Name</th>
+                    </thead>
+                    <tbody id="table2">
+
+                    </tbody>
                   </table>
               </div>
-            </section>
           </div>
           <div class="col">
             2 of 2

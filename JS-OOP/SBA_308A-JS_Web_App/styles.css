@@ -17,9 +17,6 @@ tr {
   border-color: black;
   
 }
-thead {
-  position: fixed;
-}
 
 table {
   border-collapse:collapse;
@@ -73,4 +70,9 @@ a:not([href]):not([class]):hover {
 
 td {
   height: 10px;
+}
+
+
+#countryHolidays {
+  background-color: aliceblue;
 }

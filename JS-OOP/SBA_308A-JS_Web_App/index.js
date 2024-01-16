@@ -2,16 +2,17 @@
 const table = document.getElementById("table1");
 const inputSearch = document.getElementById("inputSearch");
 const imgSearch = document.getElementById("imgSearch");
-
-const event = new KeyboardEvent('keydown', {
-  key: 'Enter',
-  code: 'Enter',
-  which: 13,
-  keyCode: 13,
-});
+var currYear = new Date()
+const year = currYear.getFullYear()
+// const event = new KeyboardEvent('keydown', {
+//   key: 'Enter',
+//   code: 'Enter',
+//   which: 13,
+//   keyCode: 13,
+// });
 
 // dispatch the event on some DOM element
-inputSearch.dispatchEvent(event);
+//inputSearch.dispatchEvent(event);
 // Step 0: Store your API key here for reference and easy access.
 const API_KEY = "live_ZouqIssLXv1utykx6JX1fypvshKB68oQPdaQtqmYZkXXhoss1stPaNAha9bymWTm";
 
@@ -24,7 +25,7 @@ async function initialLoadAxios(){
   const breeds = await response.data
   table.innerHTML = "";
   countriesList = []
-  console.log(breeds)
+  //console.log(breeds)
   console.log(inputSearch.value)
   await breeds.forEach((breed) => {
     if(breed.name.startsWith(inputSearch.value)){
@@ -35,7 +36,7 @@ async function initialLoadAxios(){
       const a = document.createElement("a")
       //const div = document.createElement("div")
       a.textContent = breed.name + " (" +breed.countryCode +")"
-      a.href = `/PublicHoliday/${breed.countryCode}`
+      a.href = `./countryInfo.html?country=/PublicHolidays/${year}/${breed.countryCode}`
       //a.appendChild(div)
       td.appendChild(a)
       tr.appendChild(td)
@@ -48,12 +49,20 @@ async function initialLoadAxios(){
 
 console.log('"start')
 initialLoadAxios()
-console.log(countriesList)
-inputSearch.onkeydown = initialLoadAxios
+//console.log(countriesList)
+//inputSearch.onkeydown = initialLoadAxios
 
 imgSearch.onclick = initialLoadAxios
+function printVal(e){
+  console.log(e)
+}
 
+async function getNextPublicHolidays() {
+  
+  console.log("need to see",this)
+}
 
+//table.onclick = getNextPublicHolidays
 
 
 
