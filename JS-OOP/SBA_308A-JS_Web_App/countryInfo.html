@@ -36,7 +36,7 @@
         <div class="container text-center">
             <div class="row">
                 <div id="countryHolidays" class="col">
-                    <h3>Public Holidays</h3>
+                    <h3 id="countryPH">Public Holidays</h3>
                     <div class="publicHolidaySearch">
                         <table  style="height: 400px;" class="table" v-if="filteredCountries && filteredCountries.length > 0">
                             <thead>
@@ -48,10 +48,18 @@
 
                             </tbody>
                         </table>
+                        <section id="selectYear" class="row">
+                            <option class="col">2020</option>
+                            <option class="col">2021</option>
+                            <option class="col">2022</option>
+                            <option class="col">2023</option>
+                            <option class="col">2024</option>
+                            <option class="col">2025</option>
+                            <option class="col">2026</option>
+                            <option class="col">2027</option>
+                            <option class="col">2028</option>
+                        </section>
                     </div>
-                </div>
-                <div class="col">
-                2 of 2
                 </div>
             </div>
         </div>

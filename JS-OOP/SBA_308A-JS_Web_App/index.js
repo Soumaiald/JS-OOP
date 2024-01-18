@@ -1,9 +1,9 @@
 
 const table = document.getElementById("table1");
+const table3 = document.getElementById("table3")
 const inputSearch = document.getElementById("inputSearch");
 const imgSearch = document.getElementById("imgSearch");
-var currYear = new Date()
-const year = currYear.getFullYear()
+
 const event = new KeyboardEvent('keydown', {
   key: 'Enter',
   code: 'Enter',
@@ -22,27 +22,46 @@ var countriesList = []
 async function initialLoadAxios(){
   console.log("initload called")
   const response = await axios("/AvailableCountries/")
-  const breeds = await response.data
+  const countries = await response.data
   table.innerHTML = "";
   countriesList = []
   //console.log(breeds)
   console.log(inputSearch.value)
-  await breeds.forEach((breed) => {
-    if(breed.name.startsWith(inputSearch.value)){
-      countriesList.push(breed.name)
+  await countries.forEach((country) => {
+    if(country.name.startsWith(inputSearch.value)){
+      countriesList.push(country.name)
       const tr = document.createElement("tr")
       const td = document.createElement("td")
-      //td.id = breed.countryCode
       const a = document.createElement("a")
-      //const div = document.createElement("div")
-      a.textContent = breed.name + " (" +breed.countryCode +")"
-      a.href = `./countryInfo.html?country=/PublicHolidays/${year}/${breed.countryCode}`
+      a.textContent = country.name + " (" +country.countryCode +")"
+      a.href = `./countryInfo.html?country=${country.countryCode}`
+      a.id = country.countryCode
       //a.appendChild(div)
       td.appendChild(a)
       tr.appendChild(td)
       //console.log(tr.outerHTML)
       table.appendChild(tr)
     }
+  })
+  const response1 = await axios("/NextPublicHolidaysWorldwide")
+  const days = await response1.data
+  table3.innerHTML = "";
+  await days.forEach((day) => {
+    
+    const tr = document.createElement("tr")
+    const date = document.createElement("td")
+    const name = document.createElement("td")
+    const aCountry = document.getElementById(day.countryCode)
+    const country2 = document.createElement("td")
+    date.textContent = day.date
+    name.textContent = day.name
+    country2.textContent = aCountry.textContent
+    tr.appendChild(date)
+    tr.appendChild(name)
+    tr.appendChild(country2)
+    //console.log(tr.outerHTML)
+    table3.appendChild(tr)
+    
   })
 }
 
@@ -59,6 +78,11 @@ function printVal(e){
 
 
 
+
+
+https://date.nager.at/api/v3
+
+initialLoadAxios()
 
 
 

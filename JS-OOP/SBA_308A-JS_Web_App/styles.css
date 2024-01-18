@@ -7,10 +7,13 @@ body {
 body {
   background-color: rgb(182, 197, 206);
 }
-section {
+#breedSelect {
   overflow-y: scroll;
 }
 
+#section2 {
+  background-color: aliceblue;
+}
 
 tr {
   border-width: 2px;
@@ -63,10 +66,7 @@ a:not([href]):not([class]):hover {
 }
 
 
-#countriesSearch1 {
-  background-color: white; 
-  margin: auto;
-}
+
 
 td {
   height: 10px;
@@ -76,3 +76,14 @@ td {
 #countryHolidays {
   background-color: aliceblue;
 }
+
+#selectYear {
+  margin: auto;
+  background-color: #6ba4e2;
+}
+
+option {
+  border-width: 2px;
+  border: solid;
+}
+
