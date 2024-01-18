@@ -4,16 +4,16 @@ const inputSearch = document.getElementById("inputSearch");
 const imgSearch = document.getElementById("imgSearch");
 var currYear = new Date()
 const year = currYear.getFullYear()
-// const event = new KeyboardEvent('keydown', {
-//   key: 'Enter',
-//   code: 'Enter',
-//   which: 13,
-//   keyCode: 13,
-// });
+const event = new KeyboardEvent('keydown', {
+  key: 'Enter',
+  code: 'Enter',
+  which: 13,
+  keyCode: 13,
+});
 
 // dispatch the event on some DOM element
-//inputSearch.dispatchEvent(event);
-// Step 0: Store your API key here for reference and easy access.
+inputSearch.dispatchEvent(event);
+
 const API_KEY = "live_ZouqIssLXv1utykx6JX1fypvshKB68oQPdaQtqmYZkXXhoss1stPaNAha9bymWTm";
 
 axios.defaults.baseURL = "https://date.nager.at/api/v3";
@@ -49,20 +49,14 @@ async function initialLoadAxios(){
 
 console.log('"start')
 initialLoadAxios()
-//console.log(countriesList)
-//inputSearch.onkeydown = initialLoadAxios
+inputSearch.onkeydown = initialLoadAxios
 
 imgSearch.onclick = initialLoadAxios
 function printVal(e){
   console.log(e)
 }
 
-async function getNextPublicHolidays() {
-  
-  console.log("need to see",this)
-}
 
-//table.onclick = getNextPublicHolidays
 
 
 

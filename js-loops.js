@@ -86,7 +86,7 @@ newArray[0].value += 10;
 numArray[3].value = 67;
 
 let myEvenValue = newArray[1].value;
-myEvenValue /= 2;*/
+myEvenValue /= 2;
 
 const person = {
 	name: {
@@ -106,3 +106,97 @@ const person = {
   }
   
   person.introduce();
+
+setTimeout(function () {hello(wait, goodbye)}, 2000)
+
+
+function hello(callback1, callback2){
+	console.log("hello")
+	callback1()
+	callback2()
+}
+
+function wait(callback){
+	console.log("wait")
+}
+
+function goodbye(){
+	console.log("goodbye")
+}*/
+
+// function resolve(){
+// 	console.log("resolve function was called")
+// }
+
+// function reject(){
+// 	console.log("reject function was called")
+// }
+
+// new Promise((resolve, reject) => {
+// 	console.log("Initial");
+  
+// 	resolve();
+//   })
+// 	.then(() => {
+// 	  throw new Error("Something failed");
+// 	  console.log("Do this");
+// 	})
+// 	.catch(() => {
+// 	  console.error("Do that");
+// 	})
+// 	.then(() => {
+// 	  console.log("Do this, no matter what happened before");
+// 	});
+
+// const promise1 = Promise.reject(0);
+// const promise2 = new Promise((resolve) => setTimeout(resolve, 100, 'quick'));
+// const promise3 = new Promise((resolve) => setTimeout(resolve, 500, 'slow'));
+
+// const promises = [promise1, promise2, promise3];
+
+// Promise.any(promises).then((value) => console.log(value));
+
+// const wait = (ms) => new Promise((resolve, reject) => {
+//     try {
+// 		console.error("Do that correct");
+//         setTimeout(resolve, ms);
+//     } catch (e) {
+// 		console.error("Do that error");
+//         reject(e);
+		
+//     }
+// });
+
+// wait(10 * 1000)
+//   .then(() => {console.error("Do this")})
+//   .catch(console.error("Do that"));
+
+// const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// wait(0).then(() => console.log("Cat"));
+
+// Promise.resolve()
+//   .then(() => console.log("Dog"))
+//   .then(() => console.log("Cow"));
+
+// console.log("Bird");
+
+function resolveAfterSeconds(t) {
+    const myPromise = new Promise(resolve => {
+        setTimeout(() => {
+            resolve('Done!');
+        }, t * 1000);
+    });
+
+    return myPromise;
+}
+
+async function testAwait() {
+    console.log('Testing...');
+
+    const result = resolveAfterSeconds(2);
+
+    console.log(result);
+}
+
+testAwait();
